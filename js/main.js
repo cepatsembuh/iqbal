@@ -18,6 +18,12 @@ function submitForm() {
       text: "Mohon isi input-input kami",
       type: "error"
     })
+  } else if (keluhan.length < 10) {
+    swal({
+      title: "Tidak cukup",
+      text: "Keluhan kamu tidak cukup, mohon jelaskan lebih dalam",
+      type: "error"
+    })
   } else {
     no_antri.on("value", function(snapshot) {
       snapshot.val();
