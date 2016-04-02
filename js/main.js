@@ -5,10 +5,11 @@ function submitForm() {
       today = ref.child(right_now);
       no_antri = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
-  var nama = $('#nama').val(),
+  var input = $('.input').val(),
+      nama = $('#nama').val(),
       no_bpjs = $('#no_bpjs').val();
 
-  if (nama == '' || no_bpjs == '') {
+  if (input == '') {
     swal({
       title: "Mohon masukan input",
       text: "Mohon isi input-input kami",
