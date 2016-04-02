@@ -1,9 +1,14 @@
-"use strict";
-var ref = new Firebase('https://dr-iqbal.firebaseio.com/');
-var today = ref.child("today");
-
 function submitForm() {
+  var ref = new Firebase("https://dr-iqbal.firebaseio.com/"),
+      today = ref.child("today");
+
   var nama = $('#nama').val(),
       no_bpjs = $('#no_bpjs').val(),
       date = $('#date').val();
+
+  today.push().set({
+    nama: nama,
+    no_bpjs: no_bpjs,
+    date: date
+  });  
 }
