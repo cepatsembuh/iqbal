@@ -7,7 +7,10 @@ function submitForm() {
 
   var input = $('.input').val(),
       nama = $('#nama').val(),
-      no_bpjs = $('#no_bpjs').val();
+      no_bpjs = $('#no_bpjs').val(),
+      nik = $('#nik').val(),
+      no_rujuk = $('#no_rujuk').val(),
+      keluhan = $('#keluhan').val();
 
   if (input == '') {
     swal({
@@ -28,6 +31,9 @@ function submitForm() {
           today.push().set({
             nama: nama,
             no_bpjs: no_bpjs,
+            nik: nik,
+            no_rujuk: no_rujuk,
+            keluhan: keluhan,
             date: date
           });
           no_antri.on("value", function(snapshot) {
