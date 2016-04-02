@@ -3,12 +3,11 @@ function submitForm() {
       today = ref.child("today");
 
   var nama = $('#nama').val(),
-      no_bpjs = $('#no_bpjs').val(),
-      date = $('#date').val();
+      no_bpjs = $('#no_bpjs').val(),      
 
   today.push().set({
     nama: nama,
     no_bpjs: no_bpjs,
     date: date
-  });  
+  });
 }
