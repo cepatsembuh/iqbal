@@ -1,7 +1,7 @@
 function submitForm() {
   var ref = new Firebase("https://dr-iqbal.firebaseio.com/"),
       date = new Date(),
-  right_now = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate(),
+      right_now = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate(),
       today = ref.child(right_now);
       no_antri = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 

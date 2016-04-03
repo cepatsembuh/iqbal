@@ -28,11 +28,16 @@
   </head>
   <body>
     <div class="container">
-          <input type="text" class="form-control input" placeholder="Nama" id="nama"><br>
-          <input type="number" class="form-control input" placeholder="No BPJS" id="no_bpjs"><br>
-          <input type="number" class="form-control input" placeholder="NIK" id="nik"><br>
-          <input type="number" class="form-control input" id="no_rujuk" placeholder="No Rujukan"><br>
-          <textarea id="keluhan" rows="5" class="form-control input" placeholder="Keluhan anda"></textarea><br>
+          <label for="nama">Nama</label>
+          <input type="text" class="form-control input" id="nama">
+          <label for="no_bpjs">No BPJS</label>
+          <input type="number" class="form-control input" id="no_bpjs">
+          <label for="nik">NIK</label>
+          <input type="number" class="form-control input" id="nik">
+          <label for="no_rujuk">No Rujukan</label>
+          <input type="number" class="form-control input" id="no_rujuk">
+          <label for="keluhan">Keluhan anda</label>
+          <textarea id="keluhan" rows="5" class="form-control input"></textarea><br>
           <button class="btn btn-info" onclick="submitForm()">Submit</button>
     </div>
     <!-- /.container -->
