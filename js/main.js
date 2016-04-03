@@ -54,3 +54,15 @@ function submitForm() {
     })
   }
 }
+
+function adminForm() {
+  var username = $('#username').val();
+  var password = $('#password').val();
+
+  if (username == 'admin' || password == 'admin123') {
+    alert('Logged in succesfully')
+  }
+  else {
+    alert('Input is not filled')
+  }
+}
