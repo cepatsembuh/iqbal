@@ -1,8 +1,8 @@
 window.onload = initializeData()
 
 function initializeData() {
-  var div = document.getElementById("right_now");
+  var right_now = document.getElementById("right_now");
   var date = new Date();
-  div.textContent = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
-  var text = div.textContent;  
+  right_now.textContent = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+  var text = right_now.textContent;  
 }
