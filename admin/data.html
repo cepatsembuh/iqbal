@@ -47,5 +47,11 @@
 
     <!-- Get NoAntri -->
     <script src="../js/getData.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    var div = document.getElementById("right_now");
+    var date = new Date();
+    div.textContent = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+    var text = div.textContent;
+    </script>
   </body>
 </html>
