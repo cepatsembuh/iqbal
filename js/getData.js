@@ -1,5 +1,5 @@
 window.onload = initializeData()
-var ref = new Firebase("https://cepatsembuh.firebaseio.com");
+var ref = new Firebase("https://dr-iqbal.firebaseio.com");
 var no_antri = new Firebase(ref + '/no_antrian');
 
 function initializeData() {
