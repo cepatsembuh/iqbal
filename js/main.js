@@ -59,8 +59,8 @@ function adminForm() {
   var username = $('#username').val();
   var password = $('#password').val();
 
-  if (username == 'admin' || password == 'admin123') {
-    alert('Logged in succesfully')
+  if (username == 'admin' || password == 'admin123') {    
+    window.location.href = 'data.html';
   }
   else {
     alert('Input is not filled')
