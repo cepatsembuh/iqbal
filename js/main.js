@@ -49,6 +49,10 @@ function submitForm() {
               type: "success",
               html: true
             })
+            var data = snapshot.val().value;
+            var number = 1;
+            var avicii = data + number;
+            console.log('Nomor antrian: ' + avicii);
           })
       }
     })
