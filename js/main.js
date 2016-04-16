@@ -6,7 +6,7 @@ function submitForm() {
       month = date.getMonth(),
       day = date.getDate(),
       right_now = year + '-' + month + '-' + day,
-      today = ref.child(right_now);
+      today = ref.child(right_now),
       no_antri = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
   var input = $('.input').val(),
