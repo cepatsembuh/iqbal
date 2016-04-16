@@ -56,6 +56,9 @@ function submitForm() {
             var data = snapshot.val().nomor;
             var number = 1;
             var avicii = data + number;
+            no_antri.set({
+              nomor: avicii
+            })
             console.log('Nomor antrian: ' + avicii);
           })
       }
