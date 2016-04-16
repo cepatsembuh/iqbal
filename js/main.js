@@ -53,13 +53,14 @@ function submitForm() {
               type: "success",
               html: true
             })
-              var data = snapshot.val().nomor;
+              /* var data = snapshot.val().nomor;
               var plus = 1;
               var glee = data + plus
               console.log('Updating data.. ');
               no_antri.set({
                 nomor: glee,
-              });
+              }); */
+              // Code above this comment is not working
           })
       }
     })
