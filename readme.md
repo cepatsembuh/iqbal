@@ -2,5 +2,5 @@
 CepatSembuh new type of feature.
 ___
 
-# License
+## License
 Licensed under MIT.
