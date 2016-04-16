@@ -31,7 +31,7 @@ function submitForm() {
   } else {
     no_antri.on("value", function(snapshot) {
       snapshot.val();
-      if (snapshot.val() > 40) {
+      if (snapshot.val().nomor > 40) {
         swal({
           title: "Tidak Tersedia",
           text: "Mohon maaf, nomor antrian kami sudah penuh",
@@ -49,11 +49,11 @@ function submitForm() {
           no_antri.on("value", function(snapshot) {
             swal({
               title: "Masih Tersedia",
-              text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+              text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val().nomor,
               type: "success",
               html: true
             })
-            var data = snapshot.val().value;
+            var data = snapshot.val().nomor;
             var number = 1;
             var avicii = data + number;
             console.log('Nomor antrian: ' + avicii);
