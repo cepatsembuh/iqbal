@@ -3,7 +3,7 @@ function submitForm() {
       // Date
       date = new Date(),
       year = date.getFullYear(),
-      month = date.getMonth(),
+      month = date.getMonth() + 1,
       day = date.getDate(),
       right_now = year + '-' + month + '-' + day,
       today = ref.child(right_now),
