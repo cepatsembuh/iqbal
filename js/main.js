@@ -38,14 +38,6 @@ function submitForm() {
           type: "error"
         })
       } else {
-          today.push().set({
-            nama: nama,
-            no_bpjs: no_bpjs,
-            nik: nik,
-            no_rujuk: no_rujuk,
-            keluhan: keluhan,
-            date: date
-          });
           nomor.on("value", function(snapshot) {
             swal({
               title: "Masih Tersedia",
@@ -62,10 +54,14 @@ function submitForm() {
               if (error) {
                   alert('Koneksi anda tidak stabil' + error);
               } else {
-                  alert('Nomor Antrian: ' + snapshot.val());
-                  pasien.push().set({
+                  alert('Nomor Antrian: ' + snapshot.val());                  
+                  today.push().set({                    
                     nama: nama,
+                    no_bpjs: no_bpjs,
                     nik: nik,
+                    no_rujuk: no_rujuk,
+                    keluhan: keluhan,
+                    date: date                    
                     no_antri: snapshot.val()
                   })
               }
