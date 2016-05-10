@@ -17,7 +17,7 @@ function submitForm() {
       keluhan = $('#keluhan').val();
 
 
-      if (input === '' || keluhan.length < 10) {
+      if (input === '' || keluhan.length < 10 || nik.length != 16 || no_bpjs.length != 13 || no_rujuk.length != 20) {
         swal({
           title: "Mohon masukan input",
           text: "Input tidak valid",
