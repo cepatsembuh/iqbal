@@ -54,6 +54,22 @@ function submitForm() {
               html: true
             })
           })
+          nomor.transaction(function(currentRank) {
+              currentData = currentRank + 1;
+
+              return currentData;
+          }, function(error, committed, snapshot) {
+              if (error) {
+                  alert('Koneksi anda tidak stabil' + error);
+              } else {
+                  alert('Nomor Antrian: ' + snapshot.val());
+                  pasien.push().set({
+                    nama: nama,
+                    nik: nik,
+                    no_antri: snapshot.val()
+                  })
+              }
+          });
       }
     })
   }
