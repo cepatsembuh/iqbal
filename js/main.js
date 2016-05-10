@@ -7,7 +7,8 @@ function submitForm() {
       day = date.getDate(),
       right_now = year + '-' + month + '-' + day,
       today = ref.child(right_now),
-      no_antri = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
+      no_antri = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian"),
+      nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
   var input = $('.input').val(),
       nama = $('#nama').val(),
@@ -29,8 +30,8 @@ function submitForm() {
       type: "error"
     })
   } else {
-    no_antri.on("value", function(snapshot) {      
-      if (snapshot.val().nomor > 40) {
+    nomor.on("value", function(snapshot) {      
+      if (snapshot.val() > 40) {
         swal({
           title: "Tidak Tersedia",
           text: "Mohon maaf, nomor antrian kami sudah penuh",
@@ -45,10 +46,10 @@ function submitForm() {
             keluhan: keluhan,
             date: date
           });
-          no_antri.on("value", function(snapshot) {
+          nomor.on("value", function(snapshot) {
             swal({
               title: "Masih Tersedia",
-              text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val().nomor,
+              text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
               type: "success",
               html: true
             })
