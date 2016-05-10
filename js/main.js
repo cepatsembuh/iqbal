@@ -16,27 +16,14 @@ function submitForm() {
       no_rujuk = $('#no_rujuk').val(),
       keluhan = $('#keluhan').val();
 
-  if (input == '') {
-    swal({
-      title: "Mohon masukan input",
-      text: "Mohon isi input-input kami",
-      type: "error"
-    })
-  } else if (keluhan.length < 10) {
-    swal({
-      title: "Tidak cukup",
-      text: "Keluhan kamu tidak cukup, mohon jelaskan lebih dalam",
-      type: "error"
-    })
-  } else {
-    nomor.on("value", function(snapshot) {      
-      if (snapshot.val() >= 40) {
+
+      if (input === '' || keluhan.length < 10) {
         swal({
-          title: "Tidak Tersedia",
-          text: "Mohon maaf, nomor antrian kami sudah penuh",
+          title: "Mohon masukan input",
+          text: "Input tidak valid",
           type: "error"
         })
-      } else {          
+      } else {       
           nomor.transaction(function(currentRank) {
               currentData = currentRank + 1;
 
@@ -48,7 +35,13 @@ function submitForm() {
                     text: "Koneksi anda kurang kuat",
                     type: "error"
                   })                  
-              } else {                  
+              } else if (snapshot.val() >= 40) {
+                  swal({
+                    title: "Tidak Tersedia",
+                    text: "Mohon maaf, nomor antrian kami sudah penuh",
+                    type: "error"
+                  })
+                } else {                  
                     swal({
                       title: "Masih Tersedia",
                       text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
@@ -66,10 +59,8 @@ function submitForm() {
                   })
               }
           });
-      }
-    })
+      }    
   }
-}
 
 function adminForm() {
   var username = $('#username').val();
