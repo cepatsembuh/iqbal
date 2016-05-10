@@ -48,8 +48,7 @@ function submitForm() {
                     title: "Koneksi anda tidak stabil",
                     text: "Koneksi anda kurang kuat",
                     type: "error"
-                  })
-                  alert('Koneksi anda tidak stabil' + error);
+                  })                  
               } else {
                   nomor.on("value", function(snapshot) {
                     swal({
