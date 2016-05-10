@@ -37,24 +37,28 @@ function submitForm() {
           text: "Mohon maaf, nomor antrian kami sudah penuh",
           type: "error"
         })
-      } else {
-          nomor.on("value", function(snapshot) {
-            swal({
-              title: "Masih Tersedia",
-              text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
-              type: "success",
-              html: true
-            })
-          })
+      } else {          
           nomor.transaction(function(currentRank) {
               currentData = currentRank + 1;
 
               return currentData;
           }, function(error, committed, snapshot) {
               if (error) {
+                  swal({
+                    title: "Koneksi anda tidak stabil",
+                    text: "Koneksi anda kurang kuat",
+                    type: "error"
+                  })
                   alert('Koneksi anda tidak stabil' + error);
               } else {
-                  alert('Nomor Antrian: ' + snapshot.val());                  
+                  nomor.on("value", function(snapshot) {
+                    swal({
+                      title: "Masih Tersedia",
+                      text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+                      type: "success",
+                      html: true
+                    })
+                  })
                   today.push().set({                    
                     nama: nama,
                     no_bpjs: no_bpjs,
