@@ -29,8 +29,7 @@ function submitForm() {
       type: "error"
     })
   } else {
-    no_antri.on("value", function(snapshot) {
-      snapshot.val();
+    no_antri.on("value", function(snapshot) {      
       if (snapshot.val().nomor > 40) {
         swal({
           title: "Tidak Tersedia",
