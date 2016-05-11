@@ -6,7 +6,7 @@ function submitForm() {
       month = date.getMonth() + 1,
       day = date.getDate(),
       right_now = year + '-' + month + '-' + day,
-      today = ref.child(right_now),      
+      today = ref.child(right_now),
       nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
   var input = $('.input').val(),
@@ -19,11 +19,11 @@ function submitForm() {
 
       if (input === '' || keluhan.length < 10 || nik.length != 16 || no_bpjs.length != 13 || no_rujuk.length != 20) {
         swal({
-          title: "Mohon masukan input",
-          text: "Input tidak valid",
+          title: "Input tidak valid",
+          text: "Salah satu input anda tidak valid",
           type: "error"
         })
-      } else {       
+      } else {
           nomor.transaction(function(currentRank) {
               currentData = currentRank + 1;
 
@@ -34,32 +34,32 @@ function submitForm() {
                     title: "Koneksi anda tidak stabil",
                     text: "Koneksi anda kurang kuat",
                     type: "error"
-                  })                  
+                  })
               } else if (snapshot.val() >= 40) {
                   swal({
                     title: "Tidak Tersedia",
                     text: "Mohon maaf, nomor antrian kami sudah penuh",
                     type: "error"
                   })
-                } else {                  
+                } else {
                     swal({
                       title: "Masih Tersedia",
                       text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
                       type: "success",
                       html: true
-                    })                  
-                  today.push().set({                    
+                    })
+                  today.push().set({
                     nama: nama,
                     no_bpjs: no_bpjs,
                     nik: nik,
                     no_rujuk: no_rujuk,
                     keluhan: keluhan,
-                    date: date   ,                 
+                    date: date   ,
                     no_antri: snapshot.val()
                   })
               }
           });
-      }    
+      }
   }
 
 function adminForm() {
