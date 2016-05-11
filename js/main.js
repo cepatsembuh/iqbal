@@ -47,6 +47,8 @@ function submitForm() {
                       text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
                       type: "success",
                       html: true
+                    }, function() {
+                      location.reload();
                     })
                   today.push().set({
                     nama: nama,
