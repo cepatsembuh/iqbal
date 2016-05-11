@@ -1,3 +1,7 @@
 body {
   margin-top: 15px;
 }
+
+#submit {
+  width: 100%;
+}
