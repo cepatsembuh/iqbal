@@ -54,7 +54,7 @@ function submitForm() {
                     nik: nik,
                     no_rujuk: no_rujuk,
                     keluhan: keluhan,
-                    date: date   ,
+                    date: date,
                     no_antri: snapshot.val()
                   })
               }
