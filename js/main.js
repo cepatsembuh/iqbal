@@ -9,6 +9,7 @@ function submitForm() {
       right_now = year + '-' + month + '-' + day,
       tommorow_date = year + '-' + month + '-' + tommorow,
       today = ref.child(right_now),
+      tommorow_child = ref.child(tommorow_date),
       nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
   var input = $('.input').val(),
@@ -46,7 +47,7 @@ function submitForm() {
                   },function() {
                     location.reload();
                   })
-                  today.push().set({
+                  tommorow_child.push().set({
                     nama: nama,
                     no_bpjs: no_bpjs,
                     nik: nik,
