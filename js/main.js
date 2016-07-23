@@ -36,10 +36,27 @@ function submitForm() {
                     type: "error"
                   })
               } else if (snapshot.val() >= 40) {
+                  // swal({
+                  //   title: "Tidak Tersedia",
+                  //   text: "Mohon maaf, nomor antrian kami sudah penuh",
+                  //   type: "error"
+                  // })
                   swal({
-                    title: "Tidak Tersedia",
-                    text: "Mohon maaf, nomor antrian kami sudah penuh",
-                    type: "error"
+                      title: "Masih Tersedia",
+                      text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+                      type: "success",
+                      html: true
+                    }, function() {
+                      location.reload();
+                    })
+                  today.push().set({
+                    nama: nama,
+                    no_bpjs: no_bpjs,
+                    nik: nik,
+                    no_rujuk: no_rujuk,
+                    keluhan: keluhan,
+                    date: date,
+                    no_antri: snapshot.val()
                   })
                 } else {
                     swal({
