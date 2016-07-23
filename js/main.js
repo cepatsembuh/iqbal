@@ -60,8 +60,8 @@ function submitForm() {
                     date: date,
                     no_antri: snapshot.val()
                   })
-                } else {
-                    swal({
+              } else {
+                  swal({
                     title: "Masih Tersedia",
                     text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
                     type: "success",
