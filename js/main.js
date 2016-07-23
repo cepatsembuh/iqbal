@@ -94,6 +94,5 @@ function submitForm() {
                     no_antri: snapshot.val()
                   })
               }
-          });
-      }
-  }
+          }) // ./nomor
+      } // ./else
