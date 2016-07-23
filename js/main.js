@@ -5,7 +5,9 @@ function submitForm() {
       year = date.getFullYear(),
       month = date.getMonth() + 1,
       day = date.getDate(),
+      tommorow = date.getDate() + 1,
       right_now = year + '-' + month + '-' + day,
+      tommorow_date = year + '-' + month + '-' + tommorow,
       today = ref.child(right_now),
       nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
@@ -42,13 +44,13 @@ function submitForm() {
                   //   type: "error"
                   // })
                   swal({
-                      title: "Masih Tersedia",
-                      text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
-                      type: "success",
-                      html: true
-                    }, function() {
-                      location.reload();
-                    })
+                    title: "Terdaftar Untuk Besok",
+                    text: "Anda terdaftar pada tanggal: " + tommorow_date + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+                    type: "success",
+                    html: true
+                  },function() {
+                    location.reload();
+                  })
                   today.push().set({
                     nama: nama,
                     no_bpjs: no_bpjs,
@@ -60,13 +62,13 @@ function submitForm() {
                   })
                 } else {
                     swal({
-                      title: "Masih Tersedia",
-                      text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
-                      type: "success",
-                      html: true
-                    }, function() {
-                      location.reload();
-                    })
+                    title: "Masih Tersedia",
+                    text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+                    type: "success",
+                    html: true
+                  },function() {
+                    location.reload();
+                  })
                   today.push().set({
                     nama: nama,
                     no_bpjs: no_bpjs,
