@@ -38,11 +38,6 @@ function submitForm() {
                     type: "error"
                   })
               } else if (snapshot.val() >= 40) {
-                  // swal({
-                  //   title: "Tidak Tersedia",
-                  //   text: "Mohon maaf, nomor antrian kami sudah penuh",
-                  //   type: "error"
-                  // })
                   swal({
                     title: "Terdaftar Untuk Besok",
                     text: "Anda terdaftar pada tanggal: " + tommorow_date + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
@@ -82,15 +77,3 @@ function submitForm() {
           });
       }
   }
-
-function adminForm() {
-  var username = $('#username').val();
-  var password = $('#password').val();
-
-  if (username == 'admin' || password == 'admin123') {
-    window.location.href = 'data.html';
-  }
-  else {
-    alert('Input is not filled')
-  }
-}
