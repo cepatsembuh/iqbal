@@ -3,52 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Cepat Sembuh">
-    <title>Cepat Sembuh</title>
+    <meta name="author" content="CepatSembuh">
 
-    <!-- Loading Bootstrap -->
+    <title>CepatSembuh - Dr. Iqbal</title>
+    
     <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Loading Flat UI -->
     <link href="css/flat-ui.min.css" rel="stylesheet">
-
-    <!-- Costum files -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" charset="utf-8"></script>
-
-    <!-- SweetAlert -->
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
-    <script src="bower_components/sweetalert/dist/sweetalert.min.js" charset="utf-8"></script>
-    <script src="bower_components/sweetalert/dist/sweetalert-dev.js" charset="utf-8"></script>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
     <div class="container">
-          <label for="nama">Nama</label>
-          <input type="text" class="form-control input" id="nama">
-          <label for="no_bpjs">No BPJS</label>
-          <input type="number" class="form-control input" id="no_bpjs">
-          <label for="nik">NIK</label>
-          <input type="number" class="form-control input" id="nik">
-          <label for="no_rujuk">No Rujukan</label>
-          <input type="number" class="form-control input" id="no_rujuk">
-          <label for="keluhan">Keluhan anda</label>
-          <textarea id="keluhan" rows="5" class="form-control input"></textarea><br>
-          <button class="btn btn-info full-width" onclick="submitForm()">Submit</button>
+      <label for="nama">Nama</label>
+      <input type="text" class="form-control input" id="nama">
+
+      <label for="no_bpjs">No BPJS</label>
+      <input type="number" class="form-control input" id="no_bpjs">
+
+      <label for="nik">NIK</label>
+      <input type="number" class="form-control input" id="nik">
+
+      <label for="no_rujuk">No Rujukan</label>
+      <input type="number" class="form-control input" id="no_rujuk">
+
+      <label for="keluhan">Keluhan anda</label>
+      <textarea id="keluhan" rows="5" class="form-control input"></textarea><br>
+
+      <button class="btn btn-info full-width" onclick="submitForm()">Submit</button>
     </div>
     <!-- /.container -->
-
-
-    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-    <script src="js/vendor/jquery.min.js"></script>
-
-    <!-- Firebase -->
+    
+    <script src="js/vendor/jquery.min.js"></script>    
     <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
-
+    <script src="js/main.js" charset="utf-8"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js" charset="utf-8"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert-dev.js" charset="utf-8"></script>
   </body>
 </html>
