@@ -1,16 +1,18 @@
 function submitForm() {
-  var ref = new Firebase("https://dr-iqbal.firebaseio.com/"),
-      // Date
-      date = new Date(),
+  var ref = new Firebase("https://dr-iqbal.firebaseio.com/");
+    // Date
+  var date = new Date(),
       year = date.getFullYear(),
       month = date.getMonth() + 1,
       day = date.getDate(),
-      tommorow = date.getDate() + 1,
       right_now = year + '-' + month + '-' + day,
+      today = ref.child(right_now);
+
+  var tommorow = date.getDate() + 1,
       tommorow_date = year + '-' + month + '-' + tommorow,
-      today = ref.child(right_now),
-      tommorow_child = ref.child(tommorow_date),
-      nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
+      tommorow_child = ref.child(tommorow_date);
+
+  var nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
 
   var input = $('.input').val(),
       nama = $('#nama').val(),
