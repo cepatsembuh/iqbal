@@ -49,35 +49,12 @@ function submitForm() {
                     text: "Koneksi anda kurang kuat",
                     type: "error"
                   })
-              } else if (snapshot.val() >= 40) {
-                  // Registering user for tommorow
-                  swal({
-                    title: "Terdaftar Untuk Besok",
-                    text: "Anda terdaftar pada tanggal: " + tommorow_date + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
-                    type: "success",
-                    html: true
-                  }, function() {                    
-                    // Reload the page so there will be no duplicate data
-                    location.reload();
-                  })
-
-                  // Push user data to firebase
-                  tommorow_child.push().set({
-                    nama: nama,
-                    no_bpjs: no_bpjs,
-                    nik: nik,
-                    no_rujuk: no_rujuk,
-                    keluhan: keluhan,
-                    date: date,
-                    no_antri: snapshot.val()
-                  })
-              } else {
+              } else {                  
                   // Registering user's for today
                   swal({
-                    title: "Masih Tersedia",
-                    text: "Anda masih bisa mendapatkan nomor antrian karena " + "<br>" + "masih ada tempat" + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+                    title: "Terdaftar",
+                    text: "Anda terdaftar pada: " + right_now,
                     type: "success",
-                    html: true
                   }, function() {                    
                     // Reload the page so there will be no duplicate data
                     location.reload();
@@ -97,3 +74,26 @@ function submitForm() {
           }) // ./nomor
       } // ./else
     }
+// else if (snapshot.val() >= 40) {
+//     // Registering user for tommorow
+//     swal({
+//       title: "Terdaftar Untuk Besok",
+//       text: "Anda terdaftar pada tanggal: " + tommorow_date + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
+//       type: "success",
+//       html: true
+//     }, function() {                    
+//       // Reload the page so there will be no duplicate data
+//       location.reload();
+//     })
+
+//     // Push user data to firebase
+//     tommorow_child.push().set({
+//       nama: nama,
+//       no_bpjs: no_bpjs,
+//       nik: nik,
+//       no_rujuk: no_rujuk,
+//       keluhan: keluhan,
+//       date: date,
+//       no_antri: snapshot.val()
+//     })
+// } 
