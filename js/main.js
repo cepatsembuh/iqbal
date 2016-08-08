@@ -38,10 +38,10 @@ function submitForm() {
       } else {
           // Firebase transaction method
           nomor.transaction(function(currentRank) {
-              currentData = currentRank + 1;
-
-              return currentData;
-          }, function(error, committed, snapshot) {
+            // Update data
+            var currentData = currentRank + 1;
+            
+          }, function(error, committed, snapshot, currentRank) {
               if (error) {
                 // Error message if user's internet is shit
                   swal({
@@ -49,6 +49,17 @@ function submitForm() {
                     text: "Koneksi anda kurang kuat",
                     type: "error"
                   })
+              } else if (snapshot.val() >= 40) {
+                    // Registering user for tommorow
+                    swal({
+                      title: "Kuota pasien sudah penuh",
+                      text: "Kuota pasien untuk hari ini sudah penuh" + "<br>" + "Cobalah mendaftar besok",
+                      type: "warning",
+                      html: true
+                    }, function() {                    
+                      // Reload the page so there will be no duplicate data
+                      location.reload();
+                    })
               } else {                  
                   // Registering user's for today
                   swal({
@@ -69,31 +80,10 @@ function submitForm() {
                     keluhan: keluhan,
                     date: date,
                     no_antri: snapshot.val()
-                  })
+                  })                
+
+                  return currentData;
               }
           }) // ./nomor
       } // ./else
     }
-// else if (snapshot.val() >= 40) {
-//     // Registering user for tommorow
-//     swal({
-//       title: "Terdaftar Untuk Besok",
-//       text: "Anda terdaftar pada tanggal: " + tommorow_date + "<br>" + "<br>" + "Nomor antrian: " + snapshot.val(),
-//       type: "success",
-//       html: true
-//     }, function() {                    
-//       // Reload the page so there will be no duplicate data
-//       location.reload();
-//     })
-
-//     // Push user data to firebase
-//     tommorow_child.push().set({
-//       nama: nama,
-//       no_bpjs: no_bpjs,
-//       nik: nik,
-//       no_rujuk: no_rujuk,
-//       keluhan: keluhan,
-//       date: date,
-//       no_antri: snapshot.val()
-//     })
-// } 
