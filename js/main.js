@@ -27,6 +27,40 @@ function submitForm() {
       keluhan = $('#keluhan').val();
 
 
+      function pesan() {
+        nomor.transaction(function(currentRank){
+          update = currentRank + 1;
+
+          return update;
+        }, function(error, commited, snapshot){
+          if (error) {
+            swal({
+              title: "Gagal mengambil data",
+              text: "Gagal mengambil data, coba cek kembali koneksi anda",
+              type: "error"
+            })
+          } else {
+              swal({
+                title: "Terdaftar",
+                text: "Anda terdaftar pada: " + right_now,
+                type: "success",
+              }, function() {                                    
+                location.reload();
+              })
+              
+              today.push().set({
+                nama: nama,
+                no_bpjs: no_bpjs,
+                nik: nik,
+                no_rujuk: no_rujuk,
+                keluhan: keluhan,
+                date: date,
+                no_antri: snapshot.val()
+              })
+          }
+        })
+      }
+
       // Validate user's input
       if (input === '' || keluhan.length < 10 || nik.length != 16 || no_bpjs.length != 13 || no_rujuk.length != 20) {
         // Error message if user's didn't type the input very well
@@ -36,54 +70,20 @@ function submitForm() {
           type: "error"
         })
       } else {
-          // Firebase transaction method
-          nomor.transaction(function(currentRank) {
-            // Update data
-            var currentData = currentRank + 1;
-            
-          }, function(error, committed, snapshot, currentRank) {
-              if (error) {
-                // Error message if user's internet is shit
-                  swal({
-                    title: "Koneksi anda tidak stabil",
-                    text: "Koneksi anda kurang kuat",
-                    type: "error"
-                  })
-              } else if (snapshot.val() >= 40) {
-                    // Registering user for tommorow
-                    swal({
-                      title: "Kuota pasien sudah penuh",
-                      text: "Kuota pasien untuk hari ini sudah penuh" + "<br>" + "Cobalah mendaftar besok",
-                      type: "warning",
-                      html: true
-                    }, function() {                    
-                      // Reload the page so there will be no duplicate data
-                      location.reload();
-                    })
-              } else {                  
-                  // Registering user's for today
-                  swal({
-                    title: "Terdaftar",
-                    text: "Anda terdaftar pada: " + right_now,
-                    type: "success",
-                  }, function() {                    
-                    // Reload the page so there will be no duplicate data
-                    location.reload();
-                  })
-
-                  // Push user data to firebase
-                  today.push().set({
-                    nama: nama,
-                    no_bpjs: no_bpjs,
-                    nik: nik,
-                    no_rujuk: no_rujuk,
-                    keluhan: keluhan,
-                    date: date,
-                    no_antri: snapshot.val()
-                  })                
-
-                  return currentData;
-              }
-          }) // ./nomor
+          nomor.on('value', function(snapshot){
+            if (snapshot.val() >= 40) {
+              swal({
+                title: "Kuota pasien sudah penuh",
+                text: "Kuota pasien untuk hari ini sudah penuh" + "<br>" + "Cobalah mendaftar besok",
+                type: "warning",
+                html: true
+              }, function() {                    
+                // Reload the page so there will be no duplicate data
+                location.reload();
+              })
+            } else {
+              pesan();
+            }
+          })          
       } // ./else
     }
