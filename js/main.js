@@ -61,9 +61,8 @@ function submitForm() {
         })
       }
 
-      // Validate user's input
-      if (input === '' || keluhan.length < 10 || nik.length != 16 || no_bpjs.length != 13 || no_rujuk.length != 20) {
-        // Error message if user's didn't type the input very well
+      // Validate user input
+      if (input === '' || keluhan.length < 10 || nik.length != 16 || no_bpjs.length != 13 || no_rujuk.length != 20) {        
         swal({
           title: "Input tidak valid",
           text: "Salah satu input anda tidak valid",
@@ -78,11 +77,10 @@ function submitForm() {
                 type: "warning",
                 html: true
               }, function() {                    
-                // Reload the page so there will be no duplicate data
                 location.reload();
               })
             } else {
-              pesan();
+                pesan();
             }
           })          
       } // ./else
