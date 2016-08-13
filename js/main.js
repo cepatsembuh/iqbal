@@ -11,16 +11,6 @@ function submitForm() {
       right_now = year + '-' + month + '-' + day,
       today = ref.child(right_now);
 
-  // Today hour's
-  function addZero(i) {
-      if (i < 10) {
-          i = "0" + i;
-      }
-      return i;
-  }
-
-  var hour = addZero(date.getHours());
-
   // Get input value
   var input = $('.input').val(),
       nama = $('#nama').val(),
@@ -45,12 +35,6 @@ function submitForm() {
             type: "warning",
             html: true
           })
-        } else if (hour >= '17') {
-            swal({
-              title: "Dr. Iqbal sudah mulai bekerja",
-              text: "Daftarlah lebih awal besok",
-              type: "error"
-            })
         } else {
             nomor.transaction(function(currentRank){
               update = currentRank + 1;
