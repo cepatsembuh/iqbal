@@ -17,6 +17,8 @@ function submitForm() {
       no_bpjs = $('#no_bpjs').val(),
       nik = $('#nik').val(),
       no_rujuk = $('#no_rujuk').val(),
+      radio = $('#radio').val(),
+      konsultasi_ke = $('#konsultasi_ke').val(),
       keluhan = $('#keluhan').val();
   
   // Validate user input
@@ -53,6 +55,8 @@ function submitForm() {
                     no_bpjs: no_bpjs,
                     nik: nik,
                     no_rujuk: no_rujuk,
+                    konsultasi_ke: konsultasi_ke,
+                    radio: radio,
                     keluhan: keluhan,
                     date: date,
                     no_antri: snapshot.val()
