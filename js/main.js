@@ -18,41 +18,7 @@ function submitForm() {
       nik = $('#nik').val(),
       no_rujuk = $('#no_rujuk').val(),
       keluhan = $('#keluhan').val();
-
-  function pesan() {
-    nomor.transaction(function(currentRank){
-      update = currentRank + 1;
-
-      return update;
-    }, function(error, commited, snapshot){
-      if (error) {
-        swal({
-          title: "Gagal mengambil data",
-          text: "Gagal mengambil data, coba cek kembali koneksi anda",
-          type: "error"
-        })
-      } else {
-          swal({
-            title: "Terdaftar",
-            text: "Anda terdaftar pada: " + right_now,
-            type: "success",
-          }, function() {                                    
-            location.reload();
-          })
-          
-          today.push().set({
-            nama: nama,
-            no_bpjs: no_bpjs,
-            nik: nik,
-            no_rujuk: no_rujuk,
-            keluhan: keluhan,
-            date: date,
-            no_antri: snapshot.val()
-          })
-        }
-    })
-  }
-
+  
   // Validate user input
   if (input === '' || keluhan.length < 10 || nik.length != 16 || no_bpjs.length != 13 || no_rujuk.length != 20) {        
     swal({
@@ -70,7 +36,37 @@ function submitForm() {
             html: true
           })
         } else {
-            pesan();
+            nomor.transaction(function(currentRank){
+              update = currentRank + 1;
+
+              return update;
+            }, function(error, commited, snapshot){
+              if (error) {
+                swal({
+                  title: "Gagal mengambil data",
+                  text: "Gagal mengambil data, coba cek kembali koneksi anda",
+                  type: "error"
+                })
+              } else {
+                  swal({
+                    title: "Terdaftar",
+                    text: "Anda terdaftar pada: " + right_now,
+                    type: "success",
+                  }, function() {                                    
+                    location.reload();
+                  })
+                  
+                  today.push().set({
+                    nama: nama,
+                    no_bpjs: no_bpjs,
+                    nik: nik,
+                    no_rujuk: no_rujuk,
+                    keluhan: keluhan,
+                    date: date,
+                    no_antri: snapshot.val()
+                  })
+                }
+            })            
         }
       })           
     } // ./else
