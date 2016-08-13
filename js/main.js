@@ -27,7 +27,7 @@ function submitForm() {
       type: "error"
     })
   } else {
-      nomor.on('value', function(snapshot){
+      nomor.once('value', function(snapshot){
         if (snapshot.val() >= 40) {
           swal({
             title: "Kuota pasien sudah penuh",
