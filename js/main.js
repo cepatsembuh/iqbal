@@ -57,10 +57,10 @@ function submitForm() {
                     date: date,
                     no_antri: snapshot.val()
                   })
-                  
+
                   swal({
                     title: "Terdaftar",
-                    text: "Anda terdaftar pada: " + right_now,
+                    text: "Anda terdaftar pada: " + right_now + '\n' '*Screenshot dan tunjukan ini kepada loket BPJS',
                     type: "success",
                   }, function() {                                    
                     location.reload();
