@@ -48,14 +48,6 @@ function submitForm() {
                   type: "error"
                 })
               } else {
-                  swal({
-                    title: "Terdaftar",
-                    text: "Anda terdaftar pada: " + right_now,
-                    type: "success",
-                  }, function() {                                    
-                    location.reload();
-                  })
-                  
                   today.push().set({
                     nama: nama,
                     no_bpjs: no_bpjs,
@@ -65,6 +57,15 @@ function submitForm() {
                     date: date,
                     no_antri: snapshot.val()
                   })
+                  
+                  swal({
+                    title: "Terdaftar",
+                    text: "Anda terdaftar pada: " + right_now,
+                    type: "success",
+                  }, function() {                                    
+                    location.reload();
+                  })
+                  
                 }
             })            
         }
