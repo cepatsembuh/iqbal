@@ -11,6 +11,16 @@ function submitForm() {
       right_now = year + '-' + month + '-' + day,
       today = ref.child(right_now);
 
+  // Today hour's
+  function addZero(i) {
+      if (i < 10) {
+          i = "0" + i;
+      }
+      return i;
+  }
+
+  var hour = addZero(date.getHours());
+
   // Get input value
   var input = $('.input').val(),
       nama = $('#nama').val(),
@@ -27,7 +37,7 @@ function submitForm() {
       type: "error"
     })
   } else {
-      nomor.on('value', function(snapshot){
+      nomor.once('value', function(snapshot){
         if (snapshot.val() >= 40) {
           swal({
             title: "Kuota pasien sudah penuh",
@@ -35,6 +45,12 @@ function submitForm() {
             type: "warning",
             html: true
           })
+        } else if (hour >= '17') {
+            swal({
+              title: "Dr. Iqbal sudah mulai bekerja",
+              text: "Daftarlah lebih awal besok",
+              type: "error"
+            })
         } else {
             nomor.transaction(function(currentRank){
               update = currentRank + 1;
@@ -48,14 +64,6 @@ function submitForm() {
                   type: "error"
                 })
               } else {
-                  swal({
-                    title: "Terdaftar",
-                    text: "Anda terdaftar pada: " + right_now,
-                    type: "success",
-                  }, function() {                                    
-                    location.reload();
-                  })
-                  
                   today.push().set({
                     nama: nama,
                     no_bpjs: no_bpjs,
@@ -65,6 +73,15 @@ function submitForm() {
                     date: date,
                     no_antri: snapshot.val()
                   })
+
+                  swal({
+                    title: "Terdaftar",
+                    text: "Anda terdaftar pada: " + right_now + '\n' + '*Screenshot dan tunjukan ini kepada loket BPJS',
+                    type: "success",
+                  }, function() {                                    
+                    location.reload();
+                  })
+                  
                 }
             })            
         }
