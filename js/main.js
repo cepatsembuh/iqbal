@@ -68,8 +68,6 @@ function submitForm() {
             text: "Kuota pasien untuk hari ini sudah penuh" + "<br>" + "Cobalah mendaftar besok",
             type: "warning",
             html: true
-          }, function() {                    
-            location.reload();
           })
         } else {
             pesan();
