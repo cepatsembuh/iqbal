@@ -1,4 +1,7 @@
+@import 'https://fonts.googleapis.com/css?family=Slabo+27px';
+
 body {
+  font-family: 'Slabo 27px', serif;
   margin-top: 15px;
   background-color: #2980B9;
   color: #fff;
