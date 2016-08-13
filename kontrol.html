@@ -15,6 +15,12 @@
   </head>
   <body>
     <div class="container">
+      <label for="konsultasi_ke">Konsultasi Ke Berapa?: </label>
+      <input type="number" class="form-control" id="konsultasi_ke">
+
+      <label for="tanggal">Tanggal Surat Rujukan</label>
+      <input type="date" class="form-control" id="tanggal">
+
       <label for="nama">Nama</label>
       <input type="text" class="form-control input" id="nama">
 
@@ -30,7 +36,7 @@
       <label for="keluhan">Keluhan anda</label>
       <textarea id="keluhan" rows="5" class="form-control input"></textarea><br>
 
-      <button class="btn btn-inverse full-width" onclick="kontrol()">Submit</button>
+      <button class="btn btn-inverse full-width" onclick="submitForm()">Submit</button>
     </div> <!-- /.container -->
     
     <script src="js/vendor/jquery.min.js"></script>    
