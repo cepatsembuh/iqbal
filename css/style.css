@@ -6,6 +6,11 @@ body {
   color: #2980B9;  
 }
 
+.btn-inverse {
+  color: #fff;
+  background-color: #2980b9;
+}
+
 .full-width {
   width: 100%;
 }
