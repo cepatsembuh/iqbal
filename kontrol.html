@@ -8,35 +8,34 @@
 
     <title>CepatSembuh - Dr. Iqbal</title>
 
-    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
-    <link href="css/flat-ui.min.css" rel="stylesheet">
+    <link href="bower_components/milligram/dist/milligram.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
   </head>
   <body>
     <div class="container">
       <label for="konsultasi_ke">Konsultasi Ke Berapa?: </label>
-      <input type="number" class="form-control" id="konsultasi_ke">
+      <input type="number" class=" id="konsultasi_ke">
 
       <label for="tanggal">Tanggal Surat Rujukan</label>
-      <input type="date" class="form-control" id="tanggal">
+      <input type="date" class=" id="tanggal">
 
       <label for="nama">Nama</label>
-      <input type="text" class="form-control input" id="nama">
+      <input type="text" class="input" id="nama">
 
       <label for="no_bpjs">No BPJS</label>
-      <input type="number" class="form-control input" id="no_bpjs">
+      <input type="number" class="input" id="no_bpjs">
 
       <label for="nik">NIK</label>
-      <input type="number" class="form-control input" id="nik">
+      <input type="number" class="input" id="nik">
 
       <label for="no_rujuk">No Rujukan</label>
-      <input type="text" class="form-control input" id="no_rujuk">
+      <input type="text" class="input" id="no_rujuk">
 
       <label for="keluhan">Keluhan anda</label>
-      <textarea id="keluhan" rows="5" class="form-control input"></textarea><br>
+      <textarea id="keluhan" rows="5" class="input"></textarea><br>
 
-      <button class="btn btn-inverse full-width" onclick="submitForm()">Submit</button>
+      <button class="button full-width" onclick="submitForm()">Submit</button>
     </div> <!-- /.container -->
     
     <script src="js/vendor/jquery.min.js"></script>    
