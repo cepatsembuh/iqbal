@@ -1,8 +1,16 @@
+// Firebase Config
+var config = {
+   apiKey: "AIzaSyDxf2IdExP9qpYHZTSBYMXgyaS9Q0csfr4",
+   authDomain: "dr-iqbal.firebaseapp.com",
+   databaseURL: "https://dr-iqbal.firebaseio.com",
+   storageBucket: "dr-iqbal.appspot.com",
+   messagingSenderId: "999297853592"
+};
+firebase.initializeApp(config);
+var ref = firebase.database();
+
 function submitForm() {
-  // Firebase ref
-  var ref = new Firebase("https://dr-iqbal.firebaseio.com/"),
-      nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
-  
+  'use strict'
   // Today date's
   var date = new Date(),
       year = date.getFullYear(),
@@ -74,9 +82,7 @@ function submitForm() {
     } // ./else
 }
   function kontrol() {
-    // Firebase ref
-  var ref = new Firebase("https://dr-iqbal.firebaseio.com/"),
-      nomor = new Firebase("https://dr-iqbal.firebaseio.com/no_antrian");
+    'use strict';
   
   // Today date's
   var date = new Date(),
